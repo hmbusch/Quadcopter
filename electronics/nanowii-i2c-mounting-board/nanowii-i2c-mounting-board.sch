@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -94,9 +94,7 @@
 <wire x1="-1.27" y1="-3.048" x2="-0.762" y2="-2.54" width="0.127" layer="51"/>
 <wire x1="1.27" y1="-3.048" x2="1.27" y2="-4.572" width="0.127" layer="51"/>
 <wire x1="0.762" y1="-5.08" x2="-0.762" y2="-5.08" width="0.127" layer="51"/>
-<text x="2.54" y="-5.08" size="1.27" layer="25" font="vector" rot="R90" align="center-left">
-                        &gt;NAME
-                    </text>
+<text x="1.905" y="-5.08" size="1.27" layer="25" font="vector" rot="R90" align="top-left">&gt;NAME</text>
 <text x="-2.54" y="-3.81" size="1.27" layer="25" font="vector" rot="R270" align="center">1</text>
 <wire x1="0.762" y1="5.08" x2="1.016" y2="4.826" width="0.254" layer="21"/>
 <wire x1="0.762" y1="2.54" x2="1.016" y2="2.794" width="0.254" layer="21"/>
@@ -211,9 +209,7 @@
 <wire x1="-1.27" y1="-5.588" x2="-0.762" y2="-5.08" width="0.127" layer="51"/>
 <wire x1="1.27" y1="-5.588" x2="1.27" y2="-7.112" width="0.127" layer="51"/>
 <wire x1="0.762" y1="-7.62" x2="-0.762" y2="-7.62" width="0.127" layer="51"/>
-<text x="2.54" y="-7.62" size="1.27" layer="25" font="vector" rot="R90" align="center-left">
-                        &gt;NAME
-                    </text>
+<text x="1.905" y="-7.62" size="1.27" layer="25" font="vector" rot="R90" align="top-left">&gt;NAME</text>
 <text x="-2.54" y="-6.35" size="1.27" layer="25" font="vector" rot="R270" align="center">1</text>
 <wire x1="0.762" y1="7.62" x2="1.016" y2="7.366" width="0.254" layer="21"/>
 <wire x1="-1.016" y1="7.366" x2="-0.762" y2="7.62" width="0.254" layer="21"/>
@@ -541,7 +537,7 @@
 </classes>
 <parts>
 <part name="NANOWII_I2C_CON" library="icmi-connectors" deviceset="PIN_HEADER_4" device="-WIDE"/>
-<part name="9DOF_I2C_CON" library="icmi-connectors" deviceset="PIN_HEADER_4" device="-WIDE"/>
+<part name="HMC5883_I2C_CON" library="icmi-connectors" deviceset="PIN_HEADER_4" device="-WIDE"/>
 <part name="I2C_EXTENSION_CON" library="icmi-connectors" deviceset="PIN_HEADER_4" device="-WIDE"/>
 <part name="P+1" library="supply1" deviceset="VCC" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
@@ -552,14 +548,14 @@
 <sheet>
 <plain>
 <text x="-2.54" y="-48.26" size="1.27" layer="94">This extension board connects the NanoWii I2C</text>
-<text x="-2.54" y="-50.8" size="1.27" layer="94">connector with other I2C peripherals such as the</text>
-<text x="-2.54" y="-53.34" size="1.27" layer="94">BMP085 pressure sensor and the 9DOF stick from</text>
-<text x="-2.54" y="-55.88" size="1.27" layer="94">Sparkfun (for access to the magnetometer).</text>
+<text x="-2.54" y="-50.8" size="1.27" layer="94">connector to other I2C peripherals such as the</text>
+<text x="-2.54" y="-53.34" size="1.27" layer="94">BMP085 pressure sensor and the HMC5883L</text>
+<text x="-2.54" y="-55.88" size="1.27" layer="94">magnetometer.</text>
 <text x="-2.54" y="-60.96" size="1.27" layer="94">Visit http://www.icanmakeit.de/projects/quadcopter</text>
 </plain>
 <instances>
 <instance part="NANOWII_I2C_CON" gate="G$1" x="-48.26" y="2.54"/>
-<instance part="9DOF_I2C_CON" gate="G$1" x="-10.16" y="-20.32" rot="R90"/>
+<instance part="HMC5883_I2C_CON" gate="G$1" x="-10.16" y="-20.32" rot="R90"/>
 <instance part="I2C_EXTENSION_CON" gate="G$1" x="50.8" y="2.54" rot="MR0"/>
 <instance part="P+1" gate="VCC" x="-27.94" y="20.32"/>
 <instance part="GND1" gate="1" x="-27.94" y="-15.24"/>
@@ -576,20 +572,20 @@
 <wire x1="-43.18" y1="5.08" x2="-27.94" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="-27.94" y1="5.08" x2="-27.94" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="I2C_EXTENSION_CON" gate="G$1" pin="1"/>
-<wire x1="-27.94" y1="5.08" x2="-12.7" y2="5.08" width="0.1524" layer="91"/>
 <label x="-43.18" y="5.08" size="1.778" layer="95"/>
 <label x="40.64" y="5.08" size="1.778" layer="95"/>
 <junction x="-27.94" y="5.08"/>
-<pinref part="9DOF_I2C_CON" gate="G$1" pin="1"/>
-<wire x1="-12.7" y1="5.08" x2="7.62" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="-27.94" y1="5.08" x2="-10.16" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="-10.16" y1="5.08" x2="7.62" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="7.62" y1="5.08" x2="45.72" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="-15.24" x2="-12.7" y2="5.08" width="0.1524" layer="91"/>
-<junction x="-12.7" y="5.08"/>
-<label x="-12.7" y="-15.24" size="1.778" layer="95" rot="R90"/>
 <pinref part="BMP085_I2C_CON" gate="G$1" pin="1"/>
 <wire x1="7.62" y1="20.32" x2="7.62" y2="5.08" width="0.1524" layer="91"/>
 <junction x="7.62" y="5.08"/>
 <label x="7.62" y="15.24" size="1.778" layer="95" rot="R90"/>
+<pinref part="HMC5883_I2C_CON" gate="G$1" pin="2"/>
+<wire x1="-10.16" y1="-15.24" x2="-10.16" y2="5.08" width="0.1524" layer="91"/>
+<junction x="-10.16" y="5.08"/>
+<label x="-10.16" y="-15.24" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -599,20 +595,20 @@
 <wire x1="-43.18" y1="-2.54" x2="-27.94" y2="-2.54" width="0.1524" layer="91"/>
 <wire x1="-27.94" y1="-2.54" x2="-27.94" y2="-12.7" width="0.1524" layer="91"/>
 <pinref part="I2C_EXTENSION_CON" gate="G$1" pin="4"/>
-<wire x1="-27.94" y1="-2.54" x2="-10.16" y2="-2.54" width="0.1524" layer="91"/>
 <label x="-43.18" y="-2.54" size="1.778" layer="95"/>
 <label x="40.64" y="-2.54" size="1.778" layer="95"/>
 <junction x="-27.94" y="-2.54"/>
-<wire x1="-10.16" y1="-2.54" x2="10.16" y2="-2.54" width="0.1524" layer="91"/>
-<pinref part="9DOF_I2C_CON" gate="G$1" pin="2"/>
+<wire x1="-27.94" y1="-2.54" x2="-12.7" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="-12.7" y1="-2.54" x2="10.16" y2="-2.54" width="0.1524" layer="91"/>
 <wire x1="10.16" y1="-2.54" x2="45.72" y2="-2.54" width="0.1524" layer="91"/>
-<wire x1="-10.16" y1="-15.24" x2="-10.16" y2="-2.54" width="0.1524" layer="91"/>
-<junction x="-10.16" y="-2.54"/>
-<label x="-10.16" y="-15.24" size="1.778" layer="95" rot="R90"/>
 <pinref part="BMP085_I2C_CON" gate="G$1" pin="2"/>
 <wire x1="10.16" y1="20.32" x2="10.16" y2="-2.54" width="0.1524" layer="91"/>
 <junction x="10.16" y="-2.54"/>
 <label x="10.16" y="15.24" size="1.778" layer="95" rot="R90"/>
+<pinref part="HMC5883_I2C_CON" gate="G$1" pin="1"/>
+<wire x1="-12.7" y1="-15.24" x2="-12.7" y2="-2.54" width="0.1524" layer="91"/>
+<junction x="-12.7" y="-2.54"/>
+<label x="-12.7" y="-15.24" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="SCL" class="0">
@@ -623,7 +619,7 @@
 <label x="-43.18" y="0" size="1.778" layer="95"/>
 <label x="40.64" y="0" size="1.778" layer="95"/>
 <wire x1="-5.08" y1="0" x2="17.78" y2="0" width="0.1524" layer="91"/>
-<pinref part="9DOF_I2C_CON" gate="G$1" pin="4"/>
+<pinref part="HMC5883_I2C_CON" gate="G$1" pin="4"/>
 <wire x1="17.78" y1="0" x2="45.72" y2="0" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="-15.24" x2="-5.08" y2="0" width="0.1524" layer="91"/>
 <junction x="-5.08" y="0"/>
@@ -642,7 +638,7 @@
 <label x="-43.18" y="2.54" size="1.778" layer="95"/>
 <label x="40.64" y="2.54" size="1.778" layer="95"/>
 <wire x1="-7.62" y1="2.54" x2="20.32" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="9DOF_I2C_CON" gate="G$1" pin="3"/>
+<pinref part="HMC5883_I2C_CON" gate="G$1" pin="3"/>
 <wire x1="20.32" y1="2.54" x2="45.72" y2="2.54" width="0.1524" layer="91"/>
 <wire x1="-7.62" y1="-15.24" x2="-7.62" y2="2.54" width="0.1524" layer="91"/>
 <junction x="-7.62" y="2.54"/>
